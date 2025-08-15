@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Style général du header */
+.header {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Ajuste selon ton design */
+  overflow: hidden;
+}
+
+/* Bannière en arrière-plan */
+.header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* garde l'image proportionnelle et couvre tout le header */
+  display: block;
+}
+
+/* Menu de navigation */
+.header nav {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 2;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 15px 30px;
+  background-color: rgba(0,0,0,0.4); /* pour mieux voir le menu sur l'image */
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Titre sur la bannière */
+.header h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 4rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  z-index: 1;
+}
+
+/* Responsive pour écrans plus petits */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+.carousel {
+  width: 450px;         /* largeur fixe et petite */
+  height: 300px;        /* hauteur fixe */
+  margin: 2rem auto;    /* centre horizontalement */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slides img {
+  width: 100%;        /* prend toute la largeur du cadre */
+  height: 100%;       /* prend toute la hauteur */
+  flex-shrink: 0;
+  object-fit: cover;  /* remplit le cadre sans étirer de manière disproportionnée */
+}
+
+/* Boutons navigation */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+/* Points de pagination */
+.dots {
+  text-align: center;
+  margin-top: 6px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
+
+/* Overlay lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: none;           /* caché par défaut */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* Bouton fermer */
+#lightbox span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+
+
+
