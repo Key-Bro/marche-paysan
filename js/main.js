@@ -1,5 +1,4 @@
-// ======= Carrousel =======
-const slidesContainer = document.querySelector('.slides');
+const slides = document.querySelector('.slides');
 const images = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
@@ -8,48 +7,66 @@ const dots = document.querySelectorAll('.dot');
 let index = 0;
 let interval = setInterval(autoSlide, 5000);
 
+// ===== PRODUITS PAR SAISON =====
+const produitsParSaison = {
+  "ete": ["Tomates", "Courgettes", "Aubergines", "Melons", "Pêches"],
+  "hiver": ["Pommes de terre", "Choux", "Carottes", "Poireaux", "Clémentines"],
+  "printemps": ["Fraises", "Radis", "Asperges", "Petits pois"],
+  "automne": ["Pommes", "Potirons", "Raisins", "Noix"]
+};
+
+// ===== Lightbox =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxList = document.getElementById('lightbox-list');
+const closeBtn = document.getElementById('close-lightbox');
+
 function showSlide(i) {
-    if (i < 0) index = images.length - 1;
-    else if (i >= images.length) index = 0;
-    else index = i;
+  if(i < 0) index = images.length - 1;
+  else if(i >= images.length) index = 0;
+  else index = i;
 
-    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+  slides.style.transform = `translateX(-${index * 100}%)`;
 
-    // Update points
-    dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === index);
-    });
+  clearInterval(interval);
+  interval = setInterval(autoSlide, 5000);
 
-    // Reset timer
-    clearInterval(interval);
-    interval = setInterval(autoSlide, 5000);
+  dots.forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === index);
+  });
 }
 
 function autoSlide() {
-    showSlide(index + 1);
+  showSlide(index + 1);
 }
 
 // Navigation
 prevBtn.addEventListener('click', () => showSlide(index - 1));
 nextBtn.addEventListener('click', () => showSlide(index + 1));
+dots.forEach((dot, idx) => dot.addEventListener('click', () => showSlide(idx)));
 
-// Cliquer sur les points
-dots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => showSlide(idx));
-});
-
-// ======= Lightbox =======
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-const closeBtn = document.getElementById('close-lightbox');
-
+// ===== Clique sur une image (ouvre la carte lightbox) =====
 images.forEach(img => {
     img.addEventListener('click', () => {
-        // Stop le carrousel
         clearInterval(interval);
 
-        // Affiche la lightbox avec l'image cliquée
+        // Récupérer saison depuis l'attribut "alt" (ex: alt="ete")
+        const saison = img.alt.toLowerCase();
+
         lightboxImg.src = img.src;
+        lightboxTitle.textContent = `Produits de ${saison.charAt(0).toUpperCase() + saison.slice(1)}`;
+
+        // Générer la liste des produits
+        lightboxList.innerHTML = "";
+        if(produitsParSaison[saison]) {
+            produitsParSaison[saison].forEach(prod => {
+                let li = document.createElement("li");
+                li.textContent = prod;
+                lightboxList.appendChild(li);
+            });
+        }
+
         lightbox.style.display = 'flex';
     });
 });
@@ -60,27 +77,9 @@ closeBtn.addEventListener('click', () => {
     interval = setInterval(autoSlide, 5000);
 });
 
-// Fermer en cliquant en dehors de l'image
 lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
+    if(e.target === lightbox) {
         lightbox.style.display = 'none';
         interval = setInterval(autoSlide, 5000);
     }
-});
-
-// ======= Scroll Smooth =======
-const menuLinks = document.querySelectorAll('nav a');
-
-menuLinks.forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-            window.scrollTo({
-                top: targetEl.offsetTop - 50, // ajuste selon la taille du header
-                behavior: 'smooth'
-            });
-        }
-    });
 });
