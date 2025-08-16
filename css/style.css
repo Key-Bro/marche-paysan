@@ -263,6 +263,68 @@ h1 {
     font-weight: bold;
 }
 
+/* Conteneur de la lightbox */
+#lightbox .lightbox-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement tout le contenu */
+}
+
+/* Conteneur du tableau */
+#lightbox-list {
+  display: flex;
+  justify-content: center; /* Centre le tableau horizontalement */
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Optionnel : rendre le tableau plus joli */
+#lightbox-list table {
+  margin: 0 auto; /* garantit le centrage */
+  border-collapse: collapse;
+}
+
+#lightbox-list th, #lightbox-list td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+
+/* Conteneur du tableau avec hauteur max et scroll */
+.table-container {
+  max-height: 300px;      /* hauteur max, à ajuster selon tes besoins */
+  overflow-y: auto;       /* ajoute une barre de scroll verticale si nécessaire */
+  margin-top: 1rem;
+  border: 1px solid #ddd; /* optionnel, pour bien délimiter le scroll */
+  border-radius: 8px;
+}
+
+/* Tableau des produits */
+.produits-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.produits-table th,
+.produits-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 50%;
+  text-align: center;
+}
+
+.produits-table th {
+  background-color: #27ae60;
+  font-weight: bold;
+}
+
+.produits-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+
 
 
 
