@@ -115,8 +115,14 @@ html {
 /* Points de pagination */
 .dots {
   text-align: center;
-  margin-top: 6px;
+  position: absolute;   /* Pour qu'ils soient au-dessus des images */
+  bottom: 10px;         /* Ajuste selon le besoin */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;          /* Au-dessus des images */
 }
+
 
 .dot {
   display: inline-block;
