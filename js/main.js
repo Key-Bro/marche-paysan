@@ -1,10 +1,23 @@
 // ===== PRODUITS PAR SAISON =====
 const produitsParSaison = {
-  "ete": ["Tomates", "Courgettes", "Aubergines", "Melons", "Pêches"],
-  "hiver": ["Pommes de terre", "Choux", "Carottes", "Poireaux", "Clémentines"],
-  "printemps": ["Fraises", "Radis", "Asperges", "Petits pois"],
-  "automne": ["Pommes", "Potirons", "Raisins", "Noix"]
+  hiver: {
+    fruits: ["Pomme", "Poire", "Kiwi", "Clémentine", "Mandarine", "Orange", "Pamplemousse", "Citron", "Châtaigne"],
+    legumes: ["Chou (tous types)", "Carotte", "Navet", "Poireau", "Céleri-rave", "Endive", "Panais", "Topinambour", "Betterave", "Oignon"]
+  },
+  printemps: {
+    fruits: ["Pomme (fin de saison)", "Poire (fin de saison)", "Kiwi", "Fraise", "Cerise (fin mai)", "Rhubarbe"],
+    legumes: ["Asperge", "Artichaut", "Épinard", "Radis", "Carotte", "Poireau", "Salade", "Petit pois", "Navet", "Chou-fleur"]
+  },
+  ete: {
+    fruits: ["Fraise", "Cerise", "Framboise", "Groseille", "Abricot", "Pêche", "Nectarine", "Melon", "Pastèque", "Myrtille", "Prune", "Mûre", "Figue", "Raisin (début)", "Pomme", "Poire"],
+    legumes: ["Tomate", "Courgette", "Concombre", "Poivron", "Aubergine", "Haricot vert", "Maïs", "Carotte", "Salade", "Radis", "Oignon", "Fenouil"]
+  },
+  automne: {
+    fruits: ["Raisin", "Pomme", "Poire", "Coing", "Prune", "Figue", "Kaki", "Châtaigne", "Noisette"],
+    legumes: ["Potiron", "Citrouille", "Courge", "Carotte", "Navet", "Céleri", "Chou (rouge, vert, Bruxelles)", "Betterave", "Poireau", "Champignon", "Endive"]
+  }
 };
+
 
 // ===== Lightbox =====
 const lightbox = document.getElementById('lightbox');
