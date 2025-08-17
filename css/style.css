@@ -412,5 +412,47 @@ h1 {
 
 
 
+/* Tableau horaires */
+.schedule {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.schedule table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.schedule th {
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.schedule td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.schedule tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.schedule tr:last-child td {
+  border-bottom: none;
+}
+
+
+
 
 
