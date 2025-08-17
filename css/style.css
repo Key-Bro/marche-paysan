@@ -59,13 +59,14 @@ h1 {
 
 /* Menu de navigation */
 .header nav {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  padding: 20px;
-  display: flex;
-  gap: 15px;
-  z-index: 2;
+    position: absolute;
+    top: 20px;
+    left: 20px;   /* pour le logo */
+    right: 20px;  /* pour que les liens restent à droite */
+    display: flex;
+    justify-content: space-between; /* logo à gauche, liens à droite */
+    align-items: center;
+    z-index: 2;
 }
 
 .header nav a {
@@ -90,6 +91,16 @@ h1 {
   font-size: 4rem;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
   z-index: 1;
+}
+
+.header nav .logo img {
+    height: 50px; /* ajuste selon ton design */
+}
+
+/* Les liens restent inchangés */
+.header nav .nav-links {
+    display: flex;
+    gap: 15px;
 }
 
 /* Responsive pour écrans plus petits */
@@ -280,7 +291,6 @@ h1 {
     border-collapse: collapse;
     margin: 0 auto;        /* centre le tableau */
 }
-
 
 #close-lightbox {
     position: absolute;
