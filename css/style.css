@@ -246,6 +246,20 @@ h1 {
     flex-shrink: 0;
 }
 
+.lightbox-content {
+    padding: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box; /* inclut padding dans la largeur */
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* empile verticalement titre + tableau */
+    align-items: center;      /* centre horizontalement */
+    justify-content: flex-start; /* commence en haut */
+}
+
 /* Titre */
 .lightbox-content h3 {
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -259,17 +273,13 @@ h1 {
 }
 
 
-.lightbox-content {
-    padding: 15px;
-    max-height: 60vh;   /* limite la partie blanche */
-    overflow-y: auto;   /* active le scroll ici */
-    overflow-x: hidden;
-    width: 100%;        /* prend toute la largeur */
-    box-sizing: border-box;
-    flex: 1;                 /* prend tout l’espace dispo sous l’image */
+#lightbox-list table.produits-table {
+    width: 100%;           /* prend toute la largeur possible */
+    max-width: 500px;      /* limite pour ne pas coller aux bords */
+    table-layout: fixed;   /* colonnes 50/50 */
+    border-collapse: collapse;
+    margin: 0 auto;        /* centre le tableau */
 }
-
-
 
 
 #close-lightbox {
