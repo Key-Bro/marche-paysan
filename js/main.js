@@ -92,9 +92,9 @@ function initCarousel(carouselElement) {
         table.appendChild(tbody);
 
         // Scroll si le tableau dépasse 300px de hauteur
-        table.style.maxHeight = "300px";
-        table.style.overflowY = "auto";
-        table.style.display = "block";
+        //table.style.maxHeight = "300px";
+        //table.style.overflowY = "auto";
+        //table.style.display = "block";
 
         lightboxList.appendChild(table);
       }
@@ -129,3 +129,4 @@ lightbox.addEventListener('click', e => {
     restartFunctions.forEach(fn => fn());
   }
 });
+
