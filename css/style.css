@@ -1,3 +1,4 @@
+/*Style général*/
 body {
   margin: 0;
   padding: 0;
@@ -49,7 +50,6 @@ h1 {
   overflow: hidden;
 }
 
-/* Bannière en arrière-plan */
 .header img {
   width: 100%;
   height: 100%;
@@ -57,7 +57,6 @@ h1 {
   display: block;
 }
 
-/* Menu de navigation */
 .header nav {
     position: absolute;
     top: 20px;
@@ -80,7 +79,6 @@ h1 {
   font-size: 1rem;
 }
 
-/* Titre sur la bannière */
 .header h1 {
   position: absolute;
   top: 50%;
@@ -94,16 +92,14 @@ h1 {
 }
 
 .header nav .logo img {
-    height: 50px; /* ajuste selon ton design */
+    height: 75px; /* ajuste selon ton design */
 }
 
-/* Les liens restent inchangés */
 .header nav .nav-links {
     display: flex;
     gap: 15px;
 }
 
-/* Responsive pour écrans plus petits */
 @media (max-width: 768px) {
   .header h1 {
     font-size: 1.8rem;
@@ -116,6 +112,9 @@ h1 {
   }
 }
 
+
+
+/*Style du separateur*/
 .separator {
   width: 750px;           /* largeur du trait */
   height: 2px;           /* épaisseur */
@@ -127,6 +126,8 @@ h1 {
 }
 
 
+
+/*Style Du carousel*/
 .carousel {
   width: 90%;
   max-width: 675px;         /* largeur fixe et petite */
@@ -138,6 +139,60 @@ h1 {
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
+
+
+/*Style de la box Carousel + Texte*/
+.carousel-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* <--- centre le bloc entier */
+  gap: 60px;                 /* espace entre carousel et texte */
+  padding: 20px 0;           /* plus besoin de gros padding gauche/droite */
+  flex-wrap: wrap;           /* pour mobile */
+  max-width: 1200px;         /* largeur max du bloc */
+  margin: 0 auto;            /* centre le bloc sur la page */
+}
+
+.carousel-section .carousel {
+  flex: 1 1 55%;             /* largeur relative */
+  min-width: 300px;
+}
+
+.carousel-section .carousel-text {
+  flex: 1 1 40%;
+  min-width: 250px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+}
+.carousel-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.paragraph {
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .carousel-section {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  .carousel-section.reverse {
+    flex-direction: column;
+  }
+
+  .carousel-section .carousel,
+  .carousel-section .carousel-text {
+    flex: 1 1 100%;
+  }
+}
+
+
+
+/*Style des Slide du carousel*/
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -226,6 +281,9 @@ h1 {
 }
 
 
+
+
+
 /* Overlay lightbox */
 #lightbox {
     display: none;
@@ -250,7 +308,6 @@ h1 {
     overflow: hidden;        /* pas de scroll ici, juste contenir */
 }
 
-/* Image toujours fixe en haut */
 .lightbox-card img {
     width: 100%;
     height: auto;
@@ -271,7 +328,6 @@ h1 {
     justify-content: flex-start; /* commence en haut */
 }
 
-/* Titre */
 .lightbox-content h3 {
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     margin-bottom: 15px;
@@ -282,7 +338,6 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-
 
 #lightbox-list table.produits-table {
     width: 100%;           /* prend toute la largeur possible */
@@ -301,21 +356,18 @@ h1 {
     font-weight: bold;
 }
 
-/* Conteneur de la lightbox */
 #lightbox .lightbox-card {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centre horizontalement tout le contenu */
 }
 
-/* Conteneur du tableau */
 #lightbox-list {
   display: flex;
   justify-content: center; /* Centre le tableau horizontalement */
   width: 100%;
 }
 
-/* Optionnel : rendre le tableau plus joli */
 #lightbox-list table {
   margin: 0 auto; /* garantit le centrage */
   border-collapse: collapse;
@@ -327,15 +379,12 @@ h1 {
   text-align: center;
 }
 
-
-/* Conteneur du tableau avec hauteur max et scroll */
 .table-container {
   margin-top: 1rem;
   border: 1px solid #ddd; /* optionnel, pour bien délimiter le scroll */
   border-radius: 8px;
 }
 
-/* Tableau des produits */
 .produits-table {
     width: 100%;
     border-collapse: collapse;
